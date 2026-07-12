@@ -48,13 +48,14 @@ class _CartPageState extends State<CartPage> {
     int total = (latteCount * lattePrice) + (cappuccinoCount * cappuccinoPrice);
 
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 10,
-            right: 15,
-            top: 48,
-            bottom: 15,
+            left: 24,
+            right: 24,
+            top: 60,
+            bottom: 24,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,11 +65,11 @@ class _CartPageState extends State<CartPage> {
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 27,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   color: Color.fromRGBO(96, 60, 53, 1),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30), // Increased spacing
 
               cartItem(
                 image: "assets/images/category_1.png",
@@ -78,7 +79,7 @@ class _CartPageState extends State<CartPage> {
                 minusFunction: removeLatte,
                 plusFunction: addLatte,
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 30), // Increased spacing
 
               cartItem(
                 image: "assets/images/category_3.png",
@@ -88,36 +89,40 @@ class _CartPageState extends State<CartPage> {
                 minusFunction: removeCappuccino,
                 plusFunction: addCappuccino,
               ),
-              SizedBox(height: 22),
+              SizedBox(
+                height: 50,
+              ), // Significantly increased spacing before Order Instruction
 
               Text(
                 "Order Instruction",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(96, 60, 53, 1),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 12),
 
               Container(
-                width: 317,
+                width: double.infinity,
                 height: 69,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 1,
-                  ),
+                  border: Border.all(color: Colors.grey.shade400, width: 1.5),
                 ),
                 child: TextField(
-                  style: TextStyle(
-
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
                   ),
+                  style: TextStyle(fontFamily: "Poppins"),
                 ),
               ),
-              SizedBox(height: 35),
+              SizedBox(height: 45),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,38 +140,36 @@ class _CartPageState extends State<CartPage> {
                     "Rp. $total",
                     style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: 18,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: Color.fromRGBO(229, 193, 0, 1),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 32),
 
-              Center(
-                child: Container(
-                  width: 329,
-                  height: 71,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(103, 61, 53, 1),
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Checkout",
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+              Container(
+                width: double.infinity,
+                height: 71,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(80, 50, 45, 1),
+                  borderRadius: BorderRadius.circular(35),
+                ),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Checkout",
+                    style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 24),
 
               Center(
                 child: TextButton(
@@ -181,7 +184,8 @@ class _CartPageState extends State<CartPage> {
                     style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 16,
-                      color: Color.fromRGBO(103, 61, 53, 1),
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(96, 60, 53, 1),
                     ),
                   ),
                 ),
@@ -202,35 +206,40 @@ class _CartPageState extends State<CartPage> {
     required VoidCallback plusFunction,
   }) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Item image smaller
+        // Increased container size to match the right image
         Container(
-          width: 85,
-          height: 90,
+          width: 125,
+          height: 140,
           decoration: BoxDecoration(
             color: Color.fromRGBO(245, 242, 242, 1),
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(20),
           ),
-          child: Image.asset(image, width: 54),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+            child: Image.asset(image, fit: BoxFit.contain),
+          ),
         ),
-        SizedBox(width: 17),
+        SizedBox(width: 20),
 
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 5), // Slight push down for visual alignment
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
                     style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: 15,
+                      fontSize: 18, // Slightly larger title
                       color: Color.fromRGBO(96, 60, 53, 1),
                     ),
                   ),
-
                   cancelButton(),
                 ],
               ),
@@ -240,29 +249,29 @@ class _CartPageState extends State<CartPage> {
                 price,
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 15,
+                  fontSize: 16, // Slightly larger price
                   fontWeight: FontWeight.bold,
                   color: Color.fromRGBO(229, 193, 0, 1),
                 ),
               ),
-              SizedBox(height: 15),
+              SizedBox(
+                height: 38,
+              ), // Increased spacing between price and buttons
 
               Row(
                 children: [
                   smallButton(icon: Icons.remove, function: minusFunction),
-                  SizedBox(width: 12),
-
+                  SizedBox(width: 18),
                   Text(
                     "$count",
                     style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: 18,
+                      fontSize: 20, // Larger count number
                       fontWeight: FontWeight.bold,
                       color: Color.fromRGBO(96, 60, 53, 1),
                     ),
                   ),
-                  SizedBox(width: 12),
-
+                  SizedBox(width: 18),
                   smallButton(icon: Icons.add, function: plusFunction),
                 ],
               ),
@@ -274,33 +283,35 @@ class _CartPageState extends State<CartPage> {
   }
 
   Widget cancelButton() {
-    return Container(
-      width: 30,
-      height: 30,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: Colors.red, width: 2),
-      ),
-      child: TextButton(
-        onPressed: () {},
-        style: TextButton.styleFrom(padding: EdgeInsets.zero),
-        child: Icon(Icons.close, color: Colors.red, size: 18),
+    return InkWell(
+      onTap: () {},
+      child: Icon(
+        Icons.cancel_outlined,
+        color: Colors.red,
+        size: 32, // Increased icon size
       ),
     );
   }
 
   Widget smallButton({required IconData icon, required VoidCallback function}) {
     return Container(
-      width: 28,
-      height: 28,
+      width: 32, // Increased button width
+      height: 32, // Increased button height
       decoration: BoxDecoration(
-        border: Border.all(color: Color.fromRGBO(96, 60, 53, 1), width: 3),
+        border: Border.all(
+          color: Color.fromRGBO(96, 60, 53, 1),
+          width: 2.5,
+        ), // Thicker border
         shape: BoxShape.circle,
       ),
-      child: TextButton(
+      child: IconButton(
         onPressed: function,
-        style: TextButton.styleFrom(padding: EdgeInsets.zero),
-        child: Icon(icon, size: 21, color: Color.fromRGBO(96, 60, 53, 1)),
+        padding: EdgeInsets.zero,
+        icon: Icon(
+          icon,
+          size: 20,
+          color: Color.fromRGBO(96, 60, 53, 1),
+        ), // Increased icon size
       ),
     );
   }

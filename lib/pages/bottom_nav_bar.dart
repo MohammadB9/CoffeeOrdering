@@ -24,20 +24,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: pages[ currentIndex ],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        elevation: 0,
         currentIndex: currentIndex,
         onTap: ( index ) {
           setState(() {
             currentIndex = index;
           });
         },
+        selectedItemColor: Color(0xFF531607),
+        unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
               size: 40,
-              color: Color(0xFF583732),
             ),
             label: "",
           ),
@@ -45,7 +50,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Icon(
               Icons.search,
               size: 40,
-              color: Colors.grey,
             ),
             label: ""
           ),
@@ -53,7 +57,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Icon(
               Icons.shopping_cart,
               size: 40,
-              color: Colors.grey,
             ),
             label: "",
           ),
@@ -61,7 +64,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Icon(
               Icons.supervised_user_circle,
               size: 40,
-              color: Colors.grey,
             ),
             label: "",
           ),

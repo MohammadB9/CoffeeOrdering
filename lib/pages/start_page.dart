@@ -24,7 +24,7 @@ class StartPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
-                radius: 177,
+                radius: 190,
                 backgroundColor: Colors.white,
                 child: Image(image: AssetImage("assets/images/coffee.png")),
               ),
@@ -37,8 +37,8 @@ class StartPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600,
                       fontFamily: 'Poppins',
                     ),
                   ),
@@ -48,8 +48,8 @@ class StartPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600,
                       fontFamily: 'Poppins',
                     ),
                   ),
@@ -65,8 +65,8 @@ class StartPage extends StatelessWidget {
                   );
                 },
                 color: Colors.white,
-                minWidth: 300,
-                height: 80,
+                minWidth: 280,
+                height: 71,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40),
                 ),
@@ -75,7 +75,7 @@ class StartPage extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.brown[800],
                     fontSize: 28,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     fontFamily: 'Poppins',
                   ),
                 ),

@@ -28,13 +28,39 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF583732),
-
       appBar: AppBar(title: Text(""), backgroundColor: Color(0xFF583732)),
-
       body: Column(
         children: [
-          Image(image: AssetImage("assets/images/category_3.png"), width: 205),
-          SizedBox(height: 20,),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              // Diamond Gradient Glow
+              Transform.rotate(
+                angle: 0.785398, // 45 degrees in radians
+                child: Container(
+                  width: 160,
+                  height: 160,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.25),
+                        blurRadius: 60,
+                        spreadRadius: 60,
+                        
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Original Image
+              Image(
+                image: AssetImage("assets/images/category_3.png"),
+                width: 205,
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
 
           Container(
             width: double.infinity,

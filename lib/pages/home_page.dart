@@ -7,6 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 42.0, left: 8.0, right: 8.0),
         child: SingleChildScrollView(
@@ -36,14 +37,22 @@ class HomePage extends StatelessWidget {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search...",
-                    hintStyle: TextStyle(color: Color(0xFFACA4A4)),
-                    prefixIcon: Icon(Icons.search),
-                    prefixIconColor: Color(0xFFACA4A4),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(23.0),
+                child: SizedBox(
+                  width: 346,
+                  height: 70,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
+                      filled: true,
+                      fillColor: Color(0xFFEFEEEE),
+                      hintText: "Search...",
+                      hintStyle: TextStyle(color: Color(0xFFACA4A4)),
+                      prefixIcon: Icon(Icons.search),
+                      prefixIconColor: Color(0xFFACA4A4),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(23.0),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                 ),
@@ -242,9 +251,12 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Image(
-                      image: AssetImage("assets/images/category_3.png"),
-                      width: 105,
+                    Transform.translate(
+                      offset: const Offset(0, -56),
+                      child: Image(
+                        image: AssetImage("assets/images/category_3.png"),
+                        width: 105,
+                      ),
                     ),
                   ],
                 ),
@@ -322,7 +334,10 @@ class HomePage extends StatelessWidget {
                                 Container(
                                   width: 25,
                                   height: 25,
-                                  color: Color(0xFF583732),
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF531607),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
                                   child: Icon(
                                     Icons.add,
                                     color: Colors.white,
@@ -386,7 +401,10 @@ class HomePage extends StatelessWidget {
                               Container(
                                 width: 25,
                                 height: 25,
-                                color: Color(0xFF583732),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF531607),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
                                 child: Icon(
                                   Icons.add,
                                   color: Colors.white,
