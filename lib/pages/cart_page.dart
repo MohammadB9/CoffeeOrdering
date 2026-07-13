@@ -52,10 +52,9 @@ class _CartPageState extends State<CartPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 24,
-            right: 24,
-            top: 60,
-            bottom: 24,
+            left: 10,
+            right: 15,
+            top: 60
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,104 +89,112 @@ class _CartPageState extends State<CartPage> {
                 plusFunction: addCappuccino,
               ),
               SizedBox(
-                height: 50,
+                height: 40,
               ), // Significantly increased spacing before Order Instruction
 
-              Text(
-                "Order Instruction",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromRGBO(96, 60, 53, 1),
-                ),
-              ),
-              SizedBox(height: 12),
-
-              Container(
-                width: double.infinity,
-                height: 69,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.grey.shade400, width: 1.5),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Order Instruction",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(96, 60, 53, 1),
+                      ),
                     ),
-                  ),
-                  style: TextStyle(fontFamily: "Poppins"),
-                ),
-              ),
-              SizedBox(height: 45),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Total:",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(96, 60, 53, 1),
+                    SizedBox(height: 12),
+                    
+                    Container(
+                      width: double.infinity,
+                      height: 69,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.grey.shade400, width: 1.5),
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
+                          ),
+                        ),
+                        style: TextStyle(fontFamily: "Poppins"),
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Rp. $total",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(229, 193, 0, 1),
+                    SizedBox(height: 45),
+                    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Total:",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(96, 60, 53, 1),
+                          ),
+                        ),
+                        Text(
+                          "Rp. $total",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(229, 193, 0, 1),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 32),
-
-              Container(
-                width: double.infinity,
-                height: 71,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(80, 50, 45, 1),
-                  borderRadius: BorderRadius.circular(35),
-                ),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Checkout",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    SizedBox(height: 32),
+                    
+                    Container(
+                      width: double.infinity,
+                      height: 71,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(80, 50, 45, 1),
+                        borderRadius: BorderRadius.circular(35),
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Checkout",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 24),
-
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => BottomNavBar()),
-                    );
-                  },
-                  child: Text(
-                    "Back to Menu",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromRGBO(96, 60, 53, 1),
+                    SizedBox(height: 24),
+                    
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => BottomNavBar()),
+                          );
+                        },
+                        child: Text(
+                          "Back to Menu",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(96, 60, 53, 1),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
